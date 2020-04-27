@@ -47,6 +47,8 @@
             this.twitch = new System.Windows.Forms.TextBox();
             this.fileOpen = new System.Windows.Forms.OpenFileDialog();
             this.button8 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.samplingrate = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +83,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(299, 190);
+            this.button2.Location = new System.Drawing.Point(299, 238);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 29);
             this.button2.TabIndex = 4;
@@ -188,7 +190,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 137);
+            this.label7.Location = new System.Drawing.Point(12, 141);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 13);
             this.label7.TabIndex = 8;
@@ -204,7 +206,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 167);
+            this.label8.Location = new System.Drawing.Point(12, 171);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 13);
             this.label8.TabIndex = 10;
@@ -223,7 +225,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(12, 190);
+            this.button8.Location = new System.Drawing.Point(12, 238);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(97, 29);
             this.button8.TabIndex = 12;
@@ -231,11 +233,35 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 203);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Sampling rate:";
+            // 
+            // samplingrate
+            // 
+            this.samplingrate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.samplingrate.FormattingEnabled = true;
+            this.samplingrate.Items.AddRange(new object[] {
+            "44100",
+            "48000",
+            "22050"});
+            this.samplingrate.Location = new System.Drawing.Point(95, 195);
+            this.samplingrate.Name = "samplingrate";
+            this.samplingrate.Size = new System.Drawing.Size(301, 21);
+            this.samplingrate.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 229);
+            this.ClientSize = new System.Drawing.Size(408, 279);
+            this.Controls.Add(this.samplingrate);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.twitch);
             this.Controls.Add(this.label8);
@@ -279,6 +305,8 @@
         private System.Windows.Forms.TextBox twitch;
         private System.Windows.Forms.OpenFileDialog fileOpen;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox samplingrate;
     }
 }
 

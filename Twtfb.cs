@@ -141,7 +141,11 @@ namespace Twitch_to_Facebook
             return false;
         }
 
-
+        public bool SetSamplingrate(string samplingrate)
+        {
+            settings["samplingrate"] = samplingrate;
+            return true;
+        }
 
         public void ClearFfmpeg()
         {
@@ -184,8 +188,13 @@ namespace Twitch_to_Facebook
                 return 5;
             }
 
+            if (settings.ContainsKey("samplingrate") == false)
+            {
+                return 6;
+            }
 
-            string arg = "\"" + settings["streamlink"] +"\"" + " https://www.twitch.tv/" + settings["twitch"] + " best -O | \""+settings["ffmpeg"] + "\" -i - -deinterlace -vcodec copy -pix_fmt yuv420p -preset medium -r 30 -g 60 -b:v 2500k -acodec copy -ar 44100 -bufsize 512k -f flv \"rtmps://live-api-s.facebook.com:443/rtmp/"+settings["facebook"]+"\"";
+
+                string arg = "\"" + settings["streamlink"] +"\"" + " https://www.twitch.tv/" + settings["twitch"] + " best -O | \""+settings["ffmpeg"] + "\" -i - -deinterlace -vcodec copy -pix_fmt yuv420p -preset medium -r 30 -g 60 -b:v 2500k -ar "+settings["samplingrate"]+" -bufsize 512k -f flv \"rtmps://live-api-s.facebook.com:443/rtmp/"+settings["facebook"]+"\"";
             StreamWriter writer = new StreamWriter("run.bat");
             writer.WriteLine(arg);
             writer.Close();            

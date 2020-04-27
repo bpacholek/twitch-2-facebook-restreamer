@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
@@ -35,7 +36,7 @@ namespace Twitch_to_Facebook
             {
                 this.Close();
             }
-
+            samplingrate.SelectedIndex = 0;
                 
             client = new Twtfb();
             client.Load();
@@ -91,6 +92,7 @@ namespace Twitch_to_Facebook
 
         private void button2_Click(object sender, EventArgs e)
         {
+            client.SetSamplingrate(samplingrate.SelectedItem.ToString());
             client.SetFacebook(facebook.Text);
             client.SetTwitch(twitch.Text);
 
